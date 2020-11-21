@@ -1,5 +1,5 @@
 import { model, Schema, Model, Document } from 'mongoose';
-import { Blog } from './blogs.model';
+import { Blog } from '../blogs/blogs.model';
 
 interface Comment extends Document {
   content: string;
