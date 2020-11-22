@@ -1,4 +1,4 @@
-import { model, Schema, Model, Document } from 'mongoose';
+import { model, Schema, Document, Model } from 'mongoose';
 
 export interface Blog extends Document {
   title: string;
@@ -12,4 +12,4 @@ const BlogSchema: Schema = new Schema({
   createdAt: { type: Schema.Types.Date, required: true },
 });
 
-export const BlogModel: Model<Blog> = model('blogs', BlogSchema);
+export const blogsModel: Model<Blog> = model('blogs', BlogSchema);

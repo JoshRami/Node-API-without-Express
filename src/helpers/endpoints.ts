@@ -8,7 +8,18 @@ const blogEndpoint = '/api/blogs/:blogId';
 const commentsEndpoint = '/api/blogs/:blogId/comments';
 const commentEndpoint = '/api/blogs/:blogId/comments/:commentId';
 
-export const blogs = { blogsExp, blogsEndpoint };
-export const blog = { blogExp, blogEndpoint };
-export const comments = { commentsExp, commentsEndpoint };
-export const comment = { commentExp, commentEndpoint };
+interface Endpoint {
+  search?: string;
+  regex?: RegExp;
+  endpoint: string;
+}
+export const blogs: Endpoint = { search: blogsExp, endpoint: blogsEndpoint };
+export const blog: Endpoint = { regex: blogExp, endpoint: blogEndpoint };
+export const comments: Endpoint = {
+  regex: commentsExp,
+  endpoint: commentsEndpoint,
+};
+export const comment: Endpoint = {
+  regex: commentExp,
+  endpoint: commentEndpoint,
+};
