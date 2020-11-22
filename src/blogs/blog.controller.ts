@@ -18,49 +18,49 @@ export default class {
     try {
       const blogs = await blogsModel.find().sort({ createdAt: -1 }).exec();
       if (blogs) {
-        response(200, { blogs }, this.res);
+        response(200, blogs, this.res);
       } else {
-        response(404, { message: 'Blogs not found' }, this.res);
+        response(404, 'Blogs not found', this.res);
       }
     } catch (error) {
-      response(500, { message: 'Uh! error server' }, this.res);
+      response(500, 'Uh! error server', this.res);
     }
   };
   getBlog = async () => {
     try {
       const blogs = await blogsModel.findById(this.params.blogId).exec();
       if (blogs) {
-        response(200, { blogs }, this.res);
+        response(200, blogs, this.res);
       } else {
-        response(404, { message: 'Blog not found' }, this.res);
+        response(404, 'Blog not found', this.res);
       }
     } catch (error) {
-      response(500, { message: 'Uh! error server' }, this.res);
+      response(500, 'Uh! error server', this.res);
     }
   };
   createBlog = async () => {
     const blog = new blogsModel(this.body);
     try {
       await blog.save();
-      response(200, { message: 'blog created successfully' }, this.res);
+      response(200, 'blog created successfully', this.res);
     } catch (err) {
-      response(500, { message: err.message }, this.res);
+      response(500, err.message, this.res);
     }
   };
   editBlog = async () => {
     try {
       await blogsModel.updateOne({ _id: this.params.blogId }, this.body);
-      response(200, { message: 'blog has been updated' }, this.res);
+      response(200, 'blog has been updated', this.res);
     } catch (err) {
-      response(500, { message: err.message }, this.res);
+      response(500, err.message, this.res);
     }
   };
   deleteBlog = async () => {
     try {
       await blogsModel.deleteOne({ blogId: this.params.blogId });
-      response(200, { message: 'blog already deleted' }, this.res);
+      response(200, 'blog already deleted', this.res);
     } catch (error) {
-      response(500, { message: error.message }, this.res);
+      response(500, error.message, this.res);
     }
   };
 }

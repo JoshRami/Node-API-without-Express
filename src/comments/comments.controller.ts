@@ -25,12 +25,12 @@ export default class {
         .find({ blogID: this.params.blogId })
         .exec();
       if (comments.length) {
-        response(200, { comments }, this.res);
+        response(200, comments, this.res);
       } else {
-        response(404, { message: 'No comments found' }, this.res);
+        response(404, 'No comments found', this.res);
       }
     } catch (error) {
-      response(500, { message: 'Uh! error server' }, this.res);
+      response(500, 'Uh! error server', this.res);
     }
   };
   getComment = async () => {
@@ -40,12 +40,12 @@ export default class {
         .find({ blogID: this.params.blogId, _id: this.params.commentId })
         .exec();
       if (comments) {
-        response(200, { comments }, this.res);
+        response(200, comments, this.res);
       } else {
-        response(404, { message: 'No comments found' }, this.res);
+        response(404, 'No comments found', this.res);
       }
     } catch (error) {
-      response(500, { message: 'Uh! error server' }, this.res);
+      response(500, 'Uh! error server', this.res);
     }
   };
   createComment = async () => {
@@ -56,9 +56,9 @@ export default class {
         content: this.body.content,
         blogID: this.params.blogId,
       });
-      response(200, { message: 'comment created successfully' }, this.res);
+      response(200, 'comment created successfully', this.res);
     } catch (err) {
-      response(500, { message: err.message }, this.res);
+      response(500, err.message, this.res);
     }
   };
   editComment = async () => {
@@ -68,28 +68,28 @@ export default class {
         { _id: this.params.commentId },
         { content: this.body.content },
       );
-      response(200, { message: 'comment has been updated' }, this.res);
+      response(200, 'comment has been updated', this.res);
     } catch (err) {
-      response(500, { message: err.message }, this.res);
+      response(500, err.message, this.res);
     }
   };
   deleteComment = async () => {
     await this.verifyBlog();
     try {
       await commentsModel.deleteOne({ _id: this.params.commentId });
-      response(200, { message: 'blog already deleted' }, this.res);
+      response(200, 'blog already deleted', this.res);
     } catch (error) {
-      response(500, { message: error.message }, this.res);
+      response(500, error.message, this.res);
     }
   };
   verifyBlog = async (): Promise<void> => {
     try {
       const blog = await blogsModel.findOne({ _id: this.params.blogId }).exec();
       if (!blog) {
-        response(404, { message: 'No comments, blog not found' }, this.res);
+        response(404, 'No comments, blog not found', this.res);
       }
     } catch (error) {
-      response(500, { message: error.message }, this.res);
+      response(500, error.message, this.res);
     }
   };
 }

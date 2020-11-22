@@ -29,10 +29,10 @@ const server = http.createServer(
           } else if (comment.regex.test(req.url)) {
             commentsRouter(req, res, body, comment.endpoint);
           } else {
-            sendResponse(404, { message: 'Endpoint not found' }, res);
+            sendResponse(404, 'Endpoint not found', res);
           }
         } catch (error) {
-          sendResponse(400, { message: error.message }, res);
+          sendResponse(400, error.message, res);
         }
       });
   },

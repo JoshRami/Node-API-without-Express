@@ -29,6 +29,6 @@ export default async (
   } else if (endpoint === comment.endpoint && method === 'DELETE') {
     await Comments.deleteComment();
   } else {
-    sendResponse(400, { message: 'Request method not supported' }, res);
+    sendResponse(400, 'Requested method not supported', res);
   }
 };

@@ -26,10 +26,6 @@ export default async (
   } else if (endpoint === blog.endpoint && method === 'DELETE') {
     await Blogs.deleteBlog();
   } else {
-    response(
-      404,
-      { message: `${endpoint} not support method: ${req.method}` },
-      res,
-    );
+    response(404, `${endpoint} not support method: ${req.method}`, res);
   }
 };
