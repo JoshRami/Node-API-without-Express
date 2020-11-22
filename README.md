@@ -4,6 +4,9 @@
 
 <img src="https://www.ixon.cloud/media/ciqpa3f3/api-2x.png" alt="drawing" width="200"/>
 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7bdb90bc572d4bdec3e8)
+
+
 ## Requiriments
 
 **Create a JSON API using the HTTP module that handles a server for a blog.**
@@ -21,3 +24,4 @@ The API should be able to handle:
 As an extra point add a way to add comments to each publication.
 
 The API should be able to handle the same use cases for a comment as a blog post, the difference is that comments are scoped per blog post.
+
