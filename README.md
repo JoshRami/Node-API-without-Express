@@ -9,14 +9,14 @@
 **Create a JSON API using the HTTP module that handles a server for a blog.**
 The API should be able to handle:
 
-- [ ] Creating a blog post.
-- [ ] Updating a blog post
-- [ ] Deleting a blog post
-- [ ] Retrieving a single blog post based on an identifier.
-- [ ] Retrieve a list of blog posts ordered from most recent to older.
-- [ ] MongoDB must be used as storage solution.
-- [ ] All post must be stored to database.
-- [ ] No authentications or security restrictions are needed..
+- [x] Creating a blog post.
+- [x] Updating a blog post
+- [x] Deleting a blog post
+- [x] Retrieving a single blog post based on an identifier.
+- [x] Retrieve a list of blog posts ordered from most recent to older.
+- [x] MongoDB must be used as storage solution.
+- [x] All post must be stored to database.
+- [x] No authentications or security restrictions are needed..
 
 As an extra point add a way to add comments to each publication.
 

@@ -17,7 +17,7 @@ export default class {
   getBlogs = async () => {
     try {
       const blogs = await blogsModel.find().sort({ createdAt: -1 }).exec();
-      if (blogs) {
+      if (blogs.length) {
         response(200, blogs, this.res);
       } else {
         response(404, 'Blogs not found', this.res);
