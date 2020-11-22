@@ -39,6 +39,7 @@ export default class {
     }
   };
   createBlog = async () => {
+    this.body.createdAt = new Date();
     const blog = new blogsModel(this.body);
     try {
       await blog.save();
