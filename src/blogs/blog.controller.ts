@@ -1,4 +1,4 @@
-import { blogsModel } from './blogs.model';
+import { blogsModel, Blog } from './blogs.model';
 import response from '../helpers/response';
 import { Params } from '../helpers/url.variables';
 import http from 'http';
@@ -7,7 +7,7 @@ export default class {
   req: http.IncomingMessage;
   res: http.ServerResponse;
   params: Params;
-  body: Body;
+  body: Blog;
   constructor(req, res, params, body) {
     this.req = req;
     this.res = res;
@@ -17,10 +17,23 @@ export default class {
   getBlogs = async () => {
     try {
       const blogs = await blogsModel.find().sort({ createdAt: -1 }).exec();
-      if (!blogs) {
-        response(404, { message: 'No blogs found' }, this.res);
+      if (blogs) {
+        response(200, { blogs }, this.res);
+      } else {
+        response(404, { message: 'Blogs not found' }, this.res);
       }
-      response(200, { blogs }, this.res);
+    } catch (error) {
+      response(500, { message: 'Uh! error server' }, this.res);
+    }
+  };
+  getBlog = async () => {
+    try {
+      const blogs = await blogsModel.findById(this.params.blogId).exec();
+      if (blogs) {
+        response(200, { blogs }, this.res);
+      } else {
+        response(404, { message: 'Blog not found' }, this.res);
+      }
     } catch (error) {
       response(500, { message: 'Uh! error server' }, this.res);
     }

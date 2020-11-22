@@ -7,6 +7,6 @@ export default async () => {
       useUnifiedTopology: true,
     });
   } catch (error) {
-    console.error(error.message);
+    throw error;
   }
 };

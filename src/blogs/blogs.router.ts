@@ -16,13 +16,15 @@ export default async (
   const Blogs = new Controller(req, res, params, body);
 
   if (endpoint === blogs.endpoint && method === 'GET') {
-    Blogs.getBlogs();
+    await Blogs.getBlogs();
   } else if (endpoint === blogs.endpoint && method === 'POST') {
-    Blogs.createBlog();
+    await Blogs.createBlog();
+  } else if (endpoint === blog.endpoint && method === 'GET') {
+    await Blogs.getBlog();
   } else if (endpoint === blog.endpoint && method === 'PUT') {
-    Blogs.editBlog();
+    await Blogs.editBlog();
   } else if (endpoint === blog.endpoint && method === 'DELETE') {
-    Blogs.deleteBlog();
+    await Blogs.deleteBlog();
   } else {
     response(
       404,

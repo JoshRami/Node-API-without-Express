@@ -4,8 +4,8 @@ import http from 'http';
 
 interface ResponseBody {
   message?: string;
-  blogs?: Blog[];
-  comments?: Comment[];
+  blogs?: Blog | Blog[];
+  comments?: Comment | Comment[];
 }
 export default (
   status: number,
