@@ -4,7 +4,7 @@
 
 <img src="https://www.ixon.cloud/media/ciqpa3f3/api-2x.png" alt="drawing" width="200"/>
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7bdb90bc572d4bdec3e8)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1266f12a32bd32ae428e)
 [![Watch API Docs](https://dabuttonfactory.com/button.png?t=Check+API+Docs&f=Open+Sans-Bold-Italic&ts=16&tc=fff&hp=45&vp=20&w=155&h=32&c=6&bgt=unicolored&bgc=15d798&be=1)](https://app.swaggerhub.com/apis-docs/JoshRami/Blogs/1.0.0)
 
 ## Requiriments
@@ -25,12 +25,12 @@ As an extra point add a way to add comments to each publication.
 
 The API should be able to handle the same use cases for a comment as a blog post, the difference is that comments are scoped per blog post.
 
-## Project Setup 
+## Project Setup
+
 **Mongodb is required, API and Db run on a local server, there is no need to make further steps than ports or connection URI**
 
 .env file is not supposed to contain secrets, it contains a port, and connection URI variables that may matter to you when running the API locally
 
 ## Run the project
+
 From project's root execute: `ts-node src/index.ts`
-
-

@@ -58,7 +58,8 @@ export default class {
   };
   deleteBlog = async () => {
     try {
-      await blogsModel.deleteOne({ blogId: this.params.blogId });
+      console.log(this.params.blogId);
+      await blogsModel.deleteOne({ _id: this.params.blogId });
       response(200, 'blog already deleted', this.res);
     } catch (error) {
       response(500, error.message, this.res);
